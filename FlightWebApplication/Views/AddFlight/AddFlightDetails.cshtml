@@ -1,0 +1,101 @@
+﻿@model FlightWebApplication.Models.AddFlightData
+@{
+    ViewBag.Title = "Add Flight Details";
+}
+
+<h2><b>@ViewBag.Title</b></h2>
+<h3>@ViewBag.Message</h3>
+
+<!--
+   <form asp-action="Index" asp-controller="Form">
+    <fieldset>
+        <label asp-for="Flight Number">Flight Number</label>  <input asp-for="Flight Number" placeholder="Enter Flight Number" /> <br />
+        <br />
+        <label asp-for="Flight Destination Name">Flight Destination Name</label>  <input asp-for="Flight Destination Name" placeholder="Enter Flight Destination Name" /> <br />
+        <br />
+        <label asp-for="Flight Distance">Flight Distance</label> <input asp-for="Flight Distance" placeholder="Enter Flight Distance" /> <br />
+        <br />
+        <label asp-for="Flight Price">Flight Price</label>  <input asp-for="Flight Price" placeholder="Enter Flight Price" /> <br />
+        <br />
+        <label asp-for="Flight Discount Percentage">Flight Discount Percentage</label>  <input asp-for="Flight Number" placeholder="Enter Flight Discount Percentage" /> <br />
+        <br /> <input type="submit" />
+    </fieldset>
+  </form>
+-->
+
+@using (Html.BeginForm("AddFlightDetails", "AddFlight", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.FlightNumber, new { @class = "col-md-3" })
+        <div class="col-md-9">
+            @Html.EditorFor(m => m.FlightNumber, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DestinationName, new { @class = "col-md-3" })
+        <div class="col-md-9">
+            @Html.EditorFor(m => m.DestinationName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FlightDistance, new { @class = "col-md-3" })
+        <div class="col-md-9">
+            @Html.EditorFor(m => m.FlightDistance, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FlightPrice, new { @class = "col-md-3" })
+        <div class="col-md-9">
+            @Html.EditorFor(m => m.FlightPrice, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DiscountPercentage, new { @class = "col-md-3" })
+        <div class="col-md-9">
+            @Html.EditorFor(m => m.DiscountPercentage, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-3 col-md-9">
+            <button onclick="URL">Back To Menu</button>            
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+
+    <div class="form-group";>
+        <div class="col-md-offset-3 col-md-9 backbtn">
+            @Html.ActionLink("Back To Menu", "Menu", "Home")
+        </div>
+     </div>
+
+        <script>
+            $(window).load(function () {
+                $('Html.BeginForm').children('input:not(#submit)').val('')
+            }
+
+
+        </script>
+        }
+
+
+
+<style>
+    .backbtn a {
+        color:#060606;
+    }
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: bold;
+        background-color: #51a5cf;
+    }
+    
+</style>

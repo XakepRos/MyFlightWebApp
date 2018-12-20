@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2 align="center"><b>Menu</b></h2>
+
+<div align="center">
+    <ul id="menulist">
+        <li >
+           
+               @Html.ActionLink("Add Flight Details", "AddFlightDetails", "AddFlight")
+            
+        </li>
+
+        <li>
+           
+               @Html.ActionLink("Display All Flight Details", "DisplayFlightDetails", "DisplayFlightDetails")
+          
+        </li>
+
+        <li>
+
+                @Html.ActionLink("Search Flight", "Search", "AddFlightController")
+            </a>
+        </li>
+
+        <li>
+           
+                @Html.ActionLink("DBUser Connection & Retrive UserData", "DBUser", "AddFlight")
+        
+        </li>
+
+        <li>
+         
+        @Html.ActionLink("Read All Data From DataBase", "ReadDB", "AddFlight")
+           
+        </li>
+
+        <li>
+          
+             @Html.ActionLink("DataBase Play", "DBPlay", "AddFlight")
+            
+        </li>
+    </ul>
+</div>
+
+<style>
+    .body-content {
+        /*border: solid #ddd 1px;
+        margin: 10px auto;
+        box-shadow: 5px 12px 12px #ddd;
+        -moz-box-shadow: 5px 12px 12px #ddd;
+        -webkit-box-shadow: 5px 12px 12px #ddd;
+        -o-box-shadow: 5px 12px 12px #ddd;
+        background-color: #f9f6f6;*/
+        margin: 10px auto;
+    }
+    #menulist {
+        width: 460px;
+        margin: 0 auto;
+    }
+    #menulist li {
+        border: 1px solid black;
+    }
+
+        #menulist li {
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            padding: initial;
+            text-transform: uppercase;
+            background-color: #64ade4;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #menulist li a {
+            color: #0c0c0c;
+            text-decoration: none;
+            display:block;
+            padding:10px;
+        }
+
+
+            #menulist li a:hover {
+                background-color:#ddd;
+                transition:all 0.5s ease-in-out;
+            }
+
+   
+ 
+
+</style>
+
+
+
+

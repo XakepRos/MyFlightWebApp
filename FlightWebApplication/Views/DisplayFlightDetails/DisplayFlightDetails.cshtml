@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FlightWebApplication.Models.AddFlightData>
+@{
+    ViewBag.Title = "Flight Detail List";
+ }
+
+
+<h2><b>@ViewBag.Title</b></h2>
+<h3>@ViewBag.Message</h3>
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+            <th>ID</th>
+            <th>Flight Number</th>
+            <th>Destination Name</th>
+            <th>Flight Distance</th>
+            <th>Flight Price</th>
+            <th>Discount Percentage</th>
+     </tr>
+        
+    @foreach (var d in Model)
+     {
+         <tr>
+             <td>@d.ID</td>
+             <td>@d.FlightNumber</td>
+             <td>@d.DestinationName</td>
+             <td>@d.FlightDistance</td>
+             <td>@d.FlightPrice</td>
+             <td>@d.DiscountPercentage</td>
+         </tr>
+     }              
+</table>  
+<style>
+    th {
+        background-color: cadetblue;
+    }
+
+    tr {
+        
+        background-color: darkgray;
+    }
+</style>
+
+
+   
