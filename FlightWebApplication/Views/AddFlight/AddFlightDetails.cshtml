@@ -26,11 +26,12 @@
 @using (Html.BeginForm("AddFlightDetails", "AddFlight", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
     <div class="form-group">
         @Html.LabelFor(m => m.FlightNumber, new { @class = "col-md-3" })
         <div class="col-md-9">
             @Html.EditorFor(m => m.FlightNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.FlightNumber)
         </div>
     </div>
 
@@ -38,6 +39,7 @@
         @Html.LabelFor(m => m.DestinationName, new { @class = "col-md-3" })
         <div class="col-md-9">
             @Html.EditorFor(m => m.DestinationName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.DestinationName)
         </div>
     </div>
 
@@ -45,6 +47,7 @@
         @Html.LabelFor(m => m.FlightDistance, new { @class = "col-md-3" })
         <div class="col-md-9">
             @Html.EditorFor(m => m.FlightDistance, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FlightDistance)
         </div>
     </div>
 
@@ -52,6 +55,7 @@
         @Html.LabelFor(m => m.FlightPrice, new { @class = "col-md-3" })
         <div class="col-md-9">
             @Html.EditorFor(m => m.FlightPrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FlightPrice)
         </div>
     </div>
 
@@ -59,6 +63,7 @@
         @Html.LabelFor(m => m.DiscountPercentage, new { @class = "col-md-3" })
         <div class="col-md-9">
             @Html.EditorFor(m => m.DiscountPercentage, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.DiscountPercentage)
         </div>
     </div>
 

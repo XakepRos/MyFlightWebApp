@@ -36,6 +36,10 @@ namespace FlightWebApplication.Controllers
                 _db.flightDataset.Add(AddFlight);
                 _db.SaveChanges();
             }
+            else
+            {
+                return View();
+            }
             //ModelState.Clear();
             return RedirectToAction("AddFlightDetails");
         }

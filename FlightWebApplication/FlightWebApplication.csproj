@@ -186,6 +186,14 @@
     <Compile Include="Migrations\201812200552100_InitialCreate.Designer.cs">
       <DependentUpon>201812200552100_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812261047517_Datatype change.cs" />
+    <Compile Include="Migrations\201812261047517_Datatype change.Designer.cs">
+      <DependentUpon>201812261047517_Datatype change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812261157003_Changes.cs" />
+    <Compile Include="Migrations\201812261157003_Changes.Designer.cs">
+      <DependentUpon>201812261157003_Changes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddFlightData.cs" />
@@ -280,6 +288,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812200552100_InitialCreate.resx">
       <DependentUpon>201812200552100_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812261047517_Datatype change.resx">
+      <DependentUpon>201812261047517_Datatype change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812261157003_Changes.resx">
+      <DependentUpon>201812261157003_Changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
