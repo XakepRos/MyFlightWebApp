@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -29,6 +30,21 @@ namespace FlightWebApplication.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        internal static AddFlightData GetAddFlightData(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void DeleteData(AddFlightData delete)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Save()
+        {
+            throw new NotImplementedException();
         }
     }
 }

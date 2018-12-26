@@ -1,44 +1,52 @@
 ﻿@model IEnumerable<FlightWebApplication.Models.AddFlightData>
+
 @{
     ViewBag.Title = "Flight Detail List";
- }
-
-
+}
 <h2><b>@ViewBag.Title</b></h2>
 <h3>@ViewBag.Message</h3>
 
+
 <table class="table table-bordered table-responsive table-hover">
     <tr>
-            <th>ID</th>
-            <th>Flight Number</th>
-            <th>Destination Name</th>
-            <th>Flight Distance</th>
-            <th>Flight Price</th>
-            <th>Discount Percentage</th>
-     </tr>
-        
+        <th>ID</th>
+        <th>Flight Number</th>
+        <th>Destination Name</th>
+        <th>Flight Distance</th>
+        <th>Flight Price</th>
+        <th>Discount Percentage</th>
+        <th>Discounted Flight Price</th>
+        <th>Options</th>
+    </tr>
+
     @foreach (var d in Model)
      {
-         <tr>
-             <td>@d.ID</td>
-             <td>@d.FlightNumber</td>
-             <td>@d.DestinationName</td>
-             <td>@d.FlightDistance</td>
-             <td>@d.FlightPrice</td>
-             <td>@d.DiscountPercentage</td>
-         </tr>
-     }              
-</table>  
+        <tr>
+            <td>@d.ID</td>
+            <td>@d.FlightNumber</td>
+            <td>@d.DestinationName</td>
+            <td>@d.FlightDistance</td>
+            <td>@d.FlightPrice</td>
+            <td>@d.DiscountPercentage</td>
+            <td>@{ var disProce = (d.FlightPrice * d.DiscountPercentage) / 100; }</td>
+            <td colspan="2">
+                @*<button type="button" class="btn btn-default">Edit</button>*@
+                @Html.ActionLink("Edit", "Edit", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default" })
+                @*<input type="submit" name="delete" value="Delete" />*@
+                @Html.ActionLink("Delete", "DeleteData", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default", onclick = "return confirm('Are sure wants to delete?');" })
+            </td>
+        </tr>
+     }
+</table>
 <style>
     th {
         background-color: cadetblue;
     }
 
     tr {
-        
         background-color: darkgray;
     }
 </style>
 
 
-   
+

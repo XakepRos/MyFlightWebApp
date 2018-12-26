@@ -15,7 +15,8 @@ namespace FlightWebApplication.Models
         [DisplayName("ID")]
         public int ID { get; set; }
 
-        [Required]       
+        [Required]
+        //[Range(1000, 2000)]
         [DisplayName("Flight Number")]       
         public int FlightNumber { get; set; }     
 
@@ -29,11 +30,13 @@ namespace FlightWebApplication.Models
         public int FlightDistance { get; set; }
         
         [Required]
+        //[Range(9, 999)]
         [DisplayName("Flight Price")]
         public int FlightPrice { get; set; }
 
         [Required]
+        //[Range(1, 100)]
         [DisplayName("Flight Discount Percentage")]
-        public int DiscountPercentage{ get; set; }
+        public int DiscountPercentage{ get; set; }      
     }
 }

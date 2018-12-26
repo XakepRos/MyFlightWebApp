@@ -178,6 +178,7 @@
     <Compile Include="Controllers\DisplayFlightDetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,10 +189,10 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddFlightData.cs" />
-    <Compile Include="Models\AddFlightDetails.cs" />
     <Compile Include="Models\DisplayUserFlightData.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SearchFlightData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -256,6 +257,8 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\AddFlight\AddFlightDetails.cshtml" />
     <Content Include="Views\DisplayFlightDetails\DisplayFlightDetails.cshtml" />
+    <Content Include="Views\AddFlight\Edit.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

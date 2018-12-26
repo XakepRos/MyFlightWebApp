@@ -7,46 +7,34 @@
 
 <div align="center">
     <ul id="menulist">
-        <li >
-           
-               @Html.ActionLink("Add Flight Details", "AddFlightDetails", "AddFlight")
-            
+        <li >         
+               @Html.ActionLink("Add Flight Details", "AddFlightDetails", "AddFlight")           
+        </li>
+
+        <li>          
+               @Html.ActionLink("Display All Flight Details", "DisplayFlightDetails", "DisplayFlightDetails")          
         </li>
 
         <li>
-           
-               @Html.ActionLink("Display All Flight Details", "DisplayFlightDetails", "DisplayFlightDetails")
-          
+                @Html.ActionLink("Search Flight", "Search", "AddFlightController")         
         </li>
 
-        <li>
-
-                @Html.ActionLink("Search Flight", "Search", "AddFlightController")
-            </a>
+        <li>          
+                @Html.ActionLink("DBUser Connection & Retrive UserData", "DBUser", "AddFlight")       
         </li>
 
-        <li>
-           
-                @Html.ActionLink("DBUser Connection & Retrive UserData", "DBUser", "AddFlight")
-        
+        <li>       
+        @Html.ActionLink("Read All Data From DataBase", "ReadDB", "AddFlight")          
         </li>
 
-        <li>
-         
-        @Html.ActionLink("Read All Data From DataBase", "ReadDB", "AddFlight")
-           
-        </li>
-
-        <li>
-          
-             @Html.ActionLink("DataBase Play", "DBPlay", "AddFlight")
-            
+        <li>         
+             @Html.ActionLink("DataBase Play", "DBPlay", "AddFlight")           
         </li>
     </ul>
 </div>
 
 <style>
-    .body-content {
+    body-content {
         /*border: solid #ddd 1px;
         margin: 10px auto;
         box-shadow: 5px 12px 12px #ddd;
@@ -81,15 +69,11 @@
             padding:10px;
         }
 
-
-            #menulist li a:hover {
-                background-color:#ddd;
-                transition:all 0.5s ease-in-out;
-            }
-
-   
- 
-
+        #menulist li a:hover
+        {
+            background-color:#ddd;
+            transition:all 0.5s ease-in-out;
+        }
 </style>
 
 

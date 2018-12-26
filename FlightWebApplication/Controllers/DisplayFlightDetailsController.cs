@@ -11,7 +11,7 @@ namespace FlightWebApplication.Controllers
     {
         ApplicationDbContext _db = new ApplicationDbContext();
 
-        // GET: DisplayFlightDetails
+        //GET: DisplayFlightDetails
         public ActionResult Index()
         {
             return View();
@@ -20,7 +20,7 @@ namespace FlightWebApplication.Controllers
         [HttpGet]
         public ActionResult DisplayFlightDetails()
         {
-            var display = _db.flightDataset.ToList();
+            var display = _db.flightDataset.ToList();           
             return View(display);
         }
 
