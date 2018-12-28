@@ -21,23 +21,27 @@
                     </button>
                     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
+
                 <div class="navbar-collapse collapse">
+                    
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     </ul>
-                    @Html.Partial("_LoginPartial")
+
+                    <ul class="nav navbar-nav navbar-right">
+                        @Html.Partial("_LoginPartial")
+                    </ul>
                 </div>
             </div>
         </div>
 
+
         <div class="container body-content">
             @RenderBody()
-            
-            <footer class="navbar-fixed-bottom"; align="center">
-              
+            <footer class="navbar-fixed-bottom" ; align="center">
                 <p style="color: black">&copy; @DateTime.Now.Year - My Flight Web ASP.NET Application</p>
             </footer>
         </div>
@@ -48,6 +52,8 @@
     </div>
 </body>
 </html>
+
+
 <style>
     body {
         /*background-image: url(../../Images/flightpic1.jpg);*/
@@ -62,15 +68,16 @@
     {
         background-color:#000;
      
-   }
+    }
         footer p {
             color: #fff !important;
-            padding-top:10px;
+            padding-top: 10px;
         }
+        
 
     .body-content {
         background-color: rgba(0,0,0,0.1);
     }
 
-    </style>
+</style>
     

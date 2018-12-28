@@ -11,18 +11,19 @@ namespace FlightWebApplication.Controllers
 {
     public class SearchController : Controller
     {
+      
         //GET: Search
-        public ActionResult Index()
+        public ActionResult search()
         {
             SearchFlightData searchflighData = new SearchFlightData();
             return View(searchflighData);
         }
 
-
         ApplicationDbContext _Db = new ApplicationDbContext();
+
         // GET: Search
         [HttpPost]
-        public ActionResult Index(SearchFlightData datas)
+        public ActionResult search(SearchFlightData datas)
         {
             // Use LINQ to get list of genres.
             SearchFlightData data = new SearchFlightData();
@@ -52,5 +53,43 @@ namespace FlightWebApplication.Controllers
 
             return View(data);
         }
+
+
+        //the first parameter is the option that we choose and the second parameter will use the textbox value  
+        //public ActionResult Index(string option, string search)
+        //{
+
+        //    //if a user choose the radio button option as Subject  
+        //    if (option == "Subjects")
+        //    {
+        //        //Index action method will return a view with a student records based on what a user specify the value in textbox  
+        //        return View(db.Students.Where(x = > x.Subjects == search || search == null).ToList());
+        //    }
+        //    else if (option == "Gender")
+        //    {
+        //        return View(db.Students.Where(x = > x.Gender == search || search == null).ToList());
+        //    }
+        //    else
+        //    {
+        //        return View(db.Students.Where(x = > x.Name.StartsWith(search) || search == null).ToList());
+        //    }
+        //}
+
+
+
+        //public ActionResult Search(string Name, string Surname)
+        //{
+        //    var SearchList = from m in _db.Klienci
+        //                     select m;
+        //    if (!String.IsNullOrEmpty(Name))
+        //    {
+        //        SearchList = SearchList.Where(s => s.Name.Contains(Name));
+        //    }
+        //    if (!String.IsNullOrEmpty(Surname))
+        //    {
+        //        SearchList = SearchList.Where(s => s.Nazwisko.Contains(Surname));
+        //    }
+        //    return View(SearchList);
+        //}
     }
 }
