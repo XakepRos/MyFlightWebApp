@@ -16,10 +16,10 @@ namespace FlightWebApplication.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Find(string searchString)
         {
-
             string item =searchString;
             var det = _db.flightDataset.ToList();
 
@@ -29,8 +29,8 @@ namespace FlightWebApplication.Controllers
             }
             TempData["test"] = det.ToList()  ;
             return RedirectToAction("DisplayFlightDetails");
-
         }
+
         [HttpGet]
         public ActionResult DisplayFlightDetails()
         {
@@ -49,5 +49,16 @@ namespace FlightWebApplication.Controllers
             //ModelState.Clear();
             return RedirectToAction("AddFlightDetails");
         }      
+
+        [HttpPost]
+        public ActionResult SortPrice(string order)
+        {
+            string item = order;
+            var sort = _db.flightDataset.ToList();                      
+            sort = _db.flightDataset.OrderByDescending(a => a.FlightPrice).ToList();
+            sort.Reverse();            
+            TempData["test"] = sort.ToList();
+            return RedirectToAction("DisplayFlightDetails");
+        }
     }
 }

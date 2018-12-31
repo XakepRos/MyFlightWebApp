@@ -17,24 +17,45 @@
             <option>Lowest Flight Price</option>
         </select>
     </div>
-        @*<input type="text" id="txtSearch" />*@
-        @*<button id="btnSubmit">Search</button>*@
-        @*<input id="btnSubmit" value="Search" onclick="window.location.href='<%= Url.Action(" search", "Search" ) %>';" />*@
-        @*<input type="button" value="Search" onclick="window.location.href='@Url.Action("search","Search" )';" />*@
+    @*<input type="text" id="txtSearch" />*@
+    @*<button id="btnSubmit">Search</button>*@
+    @*<input id="btnSubmit" value="Search" onclick="window.location.href='<%= Url.Action(" search", "Search" ) %>';" />*@
+    @*<input type="button" value="Search" onclick="window.location.href='@Url.Action("search","Search" )';" />*@
 
 
-        @using (Html.BeginForm("Find", "DisplayFlightDetails", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-         {
-            <p>
-                @Html.TextBox("SearchString")
-                <input type="submit" value="Find"/>
-            </p>
-         }
-   
+    @using (Html.BeginForm("Find", "DisplayFlightDetails", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+     {
+        <p>
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Find" />
+        </p>
+     }
+
+
+    @using (Html.BeginForm("SortPrice", "DisplayFlightDetails", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-           horizontal", role = "form" }))
+     {
+           <p>
+               <input type="submit" value="Sort Price" />
+           </p>
+     }
+
+    @using (Html.BeginForm("Menu", "Home", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+     {
+        <p>
+            <input type="submit" value="BackToMenu" />
+        </p>
+     }
+
+
+
+    @*Html.ActionLink("SortPrice", "SortPrice", "DisplayFlightDetails", new { Id = d.ID }, new { @class = "btn btn-default" }))*@
+
+
 </body>
 
-<hr />
-@*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">*@
+<hr/>
+
+    @*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">*@
 
 <table class="table table-bordered table-responsive table-hover" id="tableIds">
     <tr>
@@ -47,26 +68,27 @@
         <th>Discounted Flight Price</th>
         <th>Options</th>
     </tr>
-   
-    @foreach (var d in Model)
-     {
-            <tr>
-                <td>@d.ID</td>
-                <td>@d.FlightNumber</td>
-                <td>@d.DestinationName</td>
-                <td>@d.FlightDistance</td>
-                <td>@d.FlightPrice</td>
-                <td>@d.DiscountPercentage</td>
-                <td>@{ var disProce = (d.FlightPrice * d.DiscountPercentage) / 100; }</td>
-                <td colspan="2">
-                    @*<button type="button" class="btn btn-default">Edit</button>*@
-                    @Html.ActionLink("Edit", "Edit", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default" })
-                    @*<input type="submit" name="delete" value="Delete" />*@
-                    @Html.ActionLink("Delete", "DeleteData", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default", onclick = "return confirm('Are sure wants to delete?');" })
-                </td>
-            </tr>
-     }
 
+
+     @foreach (var d in Model)
+      {
+        <tr>
+            <td> @d.ID </td>
+            <td> @d.FlightNumber </td>
+            <td> @d.DestinationName </td>
+            <td> @d.FlightDistance </td>
+            <td> @d.FlightPrice </td>
+            <td> @d.DiscountPercentage </td>
+            <td>@{ var disProce = (d.FlightPrice * d.DiscountPercentage) / 100; }</td>
+
+            <td colspan="2">
+                @*<button type="button" class="btn btn-default">Edit</button>*@
+                @Html.ActionLink("Edit", "Edit", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default" })
+                @*<input type="submit" name="delete" value="Delete" />*@
+                @Html.ActionLink("Delete", "DeleteData", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default", onclick = "return confirm('Are you sure wants to delete?');" })
+            </td>
+        </tr>
+      }
 </table>
 
 
@@ -95,24 +117,24 @@
     </style>
 
     @*@section scripts{
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-  
-        <script>
-            $(document).ready(function () {
-                $('#tableIds').DataTable();
-            });
+            <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-            $("#btnSubmit").click(function (e) {
-                debugger;
-                var model = {
-                    searchFlight: '',
-                    txtSerarch: ''
-                };
-                model.searchFlight = $("#searchFlight").val();
-                model.txtSerarch = $("#txtSearch").val();
-                console.log(model);
-            })
-        </script>
-    }*@
+            <script>
+                $(document).ready(function () {
+                    $('#tableIds').DataTable();
+                });
+
+                $("#btnSubmit").click(function (e) {
+                    debugger;
+                    var model = {
+                        searchFlight: '',
+                        txtSerarch: ''
+                    };
+                    model.searchFlight = $("#searchFlight").val();
+                    model.txtSerarch = $("#txtSearch").val();
+                    console.log(model);
+                })
+            </script>
+        }*@
 
 

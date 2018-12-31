@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My Flight Web ASP.NET Application</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")          
-</head>
+    @Scripts.Render("~/bundles/modernizr")
 
+   
+
+</head>
 <body>
 
     <div>
@@ -21,27 +23,23 @@
                     </button>
                     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
-
                 <div class="navbar-collapse collapse">
-                    
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        @Html.Partial("_LoginPartial")
-                    </ul>
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
 
-
         <div class="container body-content">
             @RenderBody()
+
             <footer class="navbar-fixed-bottom" ; align="center">
+
                 <p style="color: black">&copy; @DateTime.Now.Year - My Flight Web ASP.NET Application</p>
             </footer>
         </div>
@@ -55,6 +53,7 @@
 
 
 <style>
+
     body {
         /*background-image: url(../../Images/flightpic1.jpg);*/
         background: url(../../Images/flightpic1.jpg) no-repeat;
@@ -64,16 +63,15 @@
         background-size: cover;
     }
 
-    footer
-    {
+    footer {
         background-color:#000;
-     
+
     }
         footer p {
             color: #fff !important;
             padding-top: 10px;
         }
-        
+
 
     .body-content {
         background-color: rgba(0,0,0,0.1);

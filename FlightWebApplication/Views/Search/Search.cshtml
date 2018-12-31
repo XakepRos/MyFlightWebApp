@@ -7,53 +7,43 @@
 <h3>@ViewBag.Message</h3>
 
 
-<body>
+<body> 
     <div class="Search">
         <select id="searchFlight" name="FlightDetails">
-            @*<option>Select Choice</option>*@
             <option>All Flight Details</option>
             <option>Flight Number</option>
             <option>Destination Name</option>
             <option>Lowest Flight Price</option>
         </select>
     </div>
-    <input type="text" id="txtSearch" />
-    <button id="btnSubmit">Search</button>
+   
+    @using (Html.BeginForm("Find", "DisplayFlightDetails", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+     {
+        <p>
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Find" />
+        </p>
+     }
+
+
+    @using (Html.BeginForm("SortPrice", "DisplayFlightDetails", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-           horizontal", role = "form" }))
+     {
+        <p>
+            <input type="submit" value="Sort Price" />
+        </p>
+     }
+
+    @using (Html.BeginForm("Menu", "Home", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+     {
+        <p>
+            <input type="submit" value="BackToMenu" />
+        </p>
+     }
+
 </body>
 
-@*<table class="table table-bordered table-responsive table-hover">
-    <tr>
-        <th>ID</th>
-        <th>Flight Number</th>
-        <th>Destination Name</th>
-        <th>Flight Distance</th>
-        <th>Flight Price</th>
-        <th>Discount Percentage</th>
-        <th>Discounted Flight Price</th>
-        <th>Options</th>
-    </tr>
-
-    @foreach (var d in Models)
-    {
-        <tr>
-            <td>@d.ID</td>
-            <td>@d.FlightNumber</td>
-            <td>@d.DestinationName</td>
-            <td>@d.FlightDistance</td>
-            <td>@d.FlightPrice</td>
-            <td>@d.DiscountPercentage</td>
-            <td>@{ var disProce = (d.FlightPrice * d.DiscountPercentage) / 100; }</td>
-            <td colspan="2">
-                @*<button type="button" class="btn btn-default">Edit</button>
-                @Html.ActionLink("Edit", "Edit", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default" })
-                @*<input type="submit" name="delete" value="Delete" />
-                @Html.ActionLink("Delete", "DeleteData", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default", onclick = "return confirm('Are sure wants to delete?');" })
-            </td>
-        </tr>
-    }
-</table>*@
-
 <style>
+
     th {
         background-color: cadetblue;
     }
@@ -65,23 +55,9 @@
     .Search {
         display: inline;
         width: 20%;
-    }
-
-    /*searchFlight{
-        width: 500px;
-    }
-
-    select, textarea {
-        max-width: 500px;
-    }*/
+    }  
 
 </style>
 
-@*<style>
 
-    .Search {
-        display: inline;
-        width: 20%;
-    }
-
-</style>*@
+    
