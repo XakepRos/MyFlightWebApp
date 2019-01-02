@@ -11,18 +11,18 @@ namespace FlightWebApplication.Controllers
 {
     public class SearchController : Controller
     {
-        [HttpPost]
-        public ActionResult Search(string searchString)
-        {
-            string item = searchString;
-            var det = _db.flightDataset.ToList();
+        //[HttpPost]
+        //public ActionResult Search(string searchString)
+        //{
+        //    string item = searchString;
+        //    var det = _db.flightDataset.ToList();
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                det = det.Where(x => x.FlightNumber.ToString() == item || x.DestinationName == item || x.FlightPrice.ToString() == item).ToList();
-            }
-            TempData["test"] = det.ToList();
-            return RedirectToAction("DisplayFlightDetails");
-        }
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        det = det.Where(x => x.FlightNumber.ToString() == item || x.DestinationName == item || x.FlightPrice.ToString() == item).ToList();
+        //    }
+        //    TempData["test"] = det.ToList();
+        //    return RedirectToAction("DisplayFlightDetails");
+        //}
     }
 }

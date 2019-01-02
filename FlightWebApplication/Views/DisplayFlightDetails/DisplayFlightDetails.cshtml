@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FlightWebApplication.Models.AddFlightData>
+﻿@model IEnumerable<FlightWebApplication.Models.DisplayFlightViewModel>
 
 @{
     ViewBag.Title = "Flight Detail List";
@@ -7,6 +7,7 @@
 <h3>@ViewBag.Message</h3>
 
 <body>
+    @*<div class="form-inline">*@
     @*<fieldset>
         <legend>*@
     <div class="Search">
@@ -14,7 +15,6 @@
             <option>All Flight Details</option>
             <option>Flight Number</option>
             <option>Destination Name</option>
-            <option>Lowest Flight Price</option>
         </select>
     </div>
     @*<input type="text" id="txtSearch" />*@
@@ -24,38 +24,30 @@
 
 
     @using (Html.BeginForm("Find", "DisplayFlightDetails", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-     {
+    {
         <p>
             @Html.TextBox("SearchString")
             <input type="submit" value="Find" />
         </p>
-     }
+    }
 
 
     @using (Html.BeginForm("SortPrice", "DisplayFlightDetails", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-           horizontal", role = "form" }))
-     {
-           <p>
-               <input type="submit" value="Sort Price" />
-           </p>
-     }
-
-    @using (Html.BeginForm("Menu", "Home", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-     {
+    {
         <p>
-            <input type="submit" value="BackToMenu" />
+            <input type="submit" value="Sort Price" />
         </p>
-     }
-
-
+    }
 
     @*Html.ActionLink("SortPrice", "SortPrice", "DisplayFlightDetails", new { Id = d.ID }, new { @class = "btn btn-default" }))*@
 
-
+    @*</fieldset>
+        </div>*@
 </body>
 
-<hr/>
+<hr />
 
-    @*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">*@
+@*<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">*@
 
 <table class="table table-bordered table-responsive table-hover" id="tableIds">
     <tr>
@@ -65,13 +57,14 @@
         <th>Flight Distance</th>
         <th>Flight Price</th>
         <th>Discount Percentage</th>
-        <th>Discounted Flight Price</th>
+        <th>Flight Discounted Amount</th>
+        <th>Total Flight Price</th>
         <th>Options</th>
     </tr>
 
 
-     @foreach (var d in Model)
-      {
+    @foreach (var d in Model)
+    {
         <tr>
             <td> @d.ID </td>
             <td> @d.FlightNumber </td>
@@ -79,7 +72,8 @@
             <td> @d.FlightDistance </td>
             <td> @d.FlightPrice </td>
             <td> @d.DiscountPercentage </td>
-            <td>@{ var disProce = (d.FlightPrice * d.DiscountPercentage) / 100; }</td>
+            <td> @d.DiscountedAmount</td>
+            <td> @d.TotalAmount</td>
 
             <td colspan="2">
                 @*<button type="button" class="btn btn-default">Edit</button>*@
@@ -88,53 +82,80 @@
                 @Html.ActionLink("Delete", "DeleteData", "AddFlight", new { Id = d.ID }, new { @class = "btn btn-default", onclick = "return confirm('Are you sure wants to delete?');" })
             </td>
         </tr>
-      }
+    }
 </table>
 
 
-    <style>
-        th {
-            background-color: cadetblue;
-        }
+@using (Html.BeginForm("Menu", "Home", new { @class = "btn btn-default" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <p>
+        <input type="submit" value="Back To Menu" />
+    </p>
+}
 
-        tr {
-            background-color: darkgray;
-        }
 
-        .Search {
-            display: inline;
-            width: 20%;
-        }
+<style>
+    
 
-        /*searchFlight{
-            width: 500px;
-        }
+    th {
+        background-color: cadetblue;
+        text-align:center;
+    }
 
-        select, textarea {
-            max-width: 500px;
+    tr {
+        background-color: darkgray;
+        width: auto;
+        text-align: center;
+    }
+
+    .Search {
+        display: inline;
+        width: 20%;
+    }
+
+    /*searchFlight{
+           width: 500px;
+          }
+
+         select, textarea {
+          max-width: 500px;
         }*/
+    fieldset {
+        display: inline;
+        /*width: 200px;
+        text-align: right;*/
+        margin-right: 10px;
+    }
 
-    </style>
+    .form-inline {
+        display: inline-block;
+        margin: 0.5em 0 0 0;
+    }
 
-    @*@section scripts{
-            <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    .Search, form-horizontal, btn {
+        display: inline;
+    }
+</style>
 
-            <script>
-                $(document).ready(function () {
-                    $('#tableIds').DataTable();
-                });
+@*@section scripts{
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-                $("#btnSubmit").click(function (e) {
-                    debugger;
-                    var model = {
-                        searchFlight: '',
-                        txtSerarch: ''
-                    };
-                    model.searchFlight = $("#searchFlight").val();
-                    model.txtSerarch = $("#txtSearch").val();
-                    console.log(model);
-                })
-            </script>
-        }*@
+        <script>
+            $(document).ready(function () {
+                $('#tableIds').DataTable();
+            });
+
+            $("#btnSubmit").click(function (e) {
+                debugger;
+                var model = {
+                    searchFlight: '',
+                    txtSerarch: ''
+                };
+                model.searchFlight = $("#searchFlight").val();
+                model.txtSerarch = $("#txtSearch").val();
+                console.log(model);
+            })
+        </script>
+    }*@
 
 

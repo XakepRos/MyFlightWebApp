@@ -11,28 +11,29 @@ namespace FlightWebApplication.Controllers
     public class AddFlightController : Controller
     {
         ApplicationDbContext _db = new ApplicationDbContext();
-     
         //Repository dinnerRepository = new DinnerRepository();
 
 
         //GET: Flight
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
 
         [HttpGet]
         public ActionResult AddFlightDetails()
         {
             return View();
         }
-
         //POST: Flight
         [HttpPost]
         public ActionResult AddFlightDetails(AddFlightData AddFlight)
         {
             if (ModelState.IsValid)
             {
+                AddFlight.Delete_Flag = "N";
                 _db.flightDataset.Add(AddFlight);
                 _db.SaveChanges();
             }
@@ -46,6 +47,7 @@ namespace FlightWebApplication.Controllers
 
 
         // GET: /Movies/Edit/5
+        [HttpGet]
         public ActionResult Edit(int Id)
         {
             AddFlightData edit = _db.flightDataset.Find(Id);
@@ -55,8 +57,6 @@ namespace FlightWebApplication.Controllers
             }
             return View(edit);
         }
-
-        
         // POST: /Movies/Edit/5
         [HttpPost]
         public ActionResult Edit(AddFlightData edit)
@@ -71,12 +71,12 @@ namespace FlightWebApplication.Controllers
         }
 
 
-       
 
-        // HTTP GET: /Dinners/Delete/1      
+        // HTTP GET: /Dinners/Delete/1 
+        [HttpGet]
         public ActionResult DeleteData(int Id)
         {
-            AddFlightData delete = _db.flightDataset.Where(x=>x.ID == Id).FirstOrDefault();
+            AddFlightData delete = _db.flightDataset.Where(x => x.ID == Id).FirstOrDefault();
 
             if (delete == null)
             {
@@ -84,53 +84,11 @@ namespace FlightWebApplication.Controllers
             }
             else
             {
-                _db.flightDataset.Remove(delete);
+                delete.Delete_Flag = "Y";
+              //  _db.flightDataset.up(delete);
                 _db.SaveChanges();
-                return RedirectToAction("DisplayFlightDetails", "DisplayFlightDetails");                
-            }               
-        }
-
-        
-        //public flightDataset x(int Id)
-        //{
-        //    return new flightDataset { ID == Id} ;
-        //}
-        //select* from flightDataset where ID = Id
-
-
-        //// HTTP GET: /Dinners/Delete/1
-        //public ActionResult DeleteData(int Id)
-        //{
-        //    AddFlightData delete = ApplicationDbContext.GetAddFlightData(Id);
-
-        //    if (delete == null)
-        //    {
-        //        return View("NotFound");
-        //    }
-        //    else
-        //    {
-        //        ApplicationDbContext.DeleteData(delete);
-        //        ApplicationDbContext.Save();
-
-        //        return View(delete);
-        //    }
-        //}
-
-        public ActionResult Search()
-        {
-            return View();
-        }
-        public ActionResult DBUser()
-        {
-            return View();
-        }
-        public ActionResult ReadDB()
-        {
-            return View();
-        }
-        public ActionResult DBPlay()
-        {
-            return View();
+                return RedirectToAction("DisplayFlightDetails", "DisplayFlightDetails");
+            }
         }
     }
 }
