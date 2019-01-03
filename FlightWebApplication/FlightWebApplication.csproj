@@ -179,12 +179,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201901021143348_Delete_Flag.cs" />
     <Compile Include="Migrations\201901021143348_Delete_Flag.Designer.cs">
       <DependentUpon>201901021143348_Delete_Flag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030604242_test created.cs" />
+    <Compile Include="Migrations\201901030604242_test created.Designer.cs">
+      <DependentUpon>201901030604242_test created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901030607218_test created1.cs" />
+    <Compile Include="Migrations\201901030607218_test created1.Designer.cs">
+      <DependentUpon>201901030607218_test created1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -194,6 +203,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchFlightData.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -262,6 +272,11 @@
     <Content Include="Views\DisplayFlightDetails\DisplayFlightDetails.cshtml" />
     <Content Include="Views\AddFlight\Edit.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Tests\Create.cshtml" />
+    <Content Include="Views\Tests\Delete.cshtml" />
+    <Content Include="Views\Tests\Details.cshtml" />
+    <Content Include="Views\Tests\Edit.cshtml" />
+    <Content Include="Views\Tests\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -283,6 +298,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901021143348_Delete_Flag.resx">
       <DependentUpon>201901021143348_Delete_Flag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901030604242_test created.resx">
+      <DependentUpon>201901030604242_test created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901030607218_test created1.resx">
+      <DependentUpon>201901030607218_test created1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

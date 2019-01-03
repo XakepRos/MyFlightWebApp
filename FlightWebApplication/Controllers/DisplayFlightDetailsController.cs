@@ -98,8 +98,9 @@ namespace FlightWebApplication.Controllers
                 TotalAmount = (x.FlightPrice - Math.Round((x.FlightPrice * x.DiscountPercentage) / 100))
             });
 
-            sort = sort.OrderByDescending(a => a.FlightPrice).ToList();
-            sort.Reverse();
+            sort = sort.OrderBy(a => a.FlightPrice).ToList();
+            //sort.Reverse();
+            
             TempData["test"] = sort.ToList();
             return RedirectToAction("DisplayFlightDetails");
         }
